@@ -1,8 +1,8 @@
 from google.cloud import vision
 import cv2
 import numpy as np
-
 import os 
+
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "data\plasma-buckeye-427410-t8-6c2611019c9d.json"
 
 def get_similar_products_file(
@@ -10,7 +10,7 @@ def get_similar_products_file(
     location = 'asia-east1',
     product_set_id = '5e22bdcb197e2a53',
     product_category= 'homegoods-v2',
-    file_path= "C:\\Users\\Bread\\Documents\\bread\\key-python-test\\data\\test\\S__24051720_0.jpg",
+    file_path= "image\/test\/S__24051720_0.jpg",
     filter= 'type=key' ,
     max_results= 5,
 ):

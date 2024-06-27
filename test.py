@@ -62,6 +62,6 @@ def product_search(image_path):
     return grouped_results
 
 if __name__ == "__main__":
-    image_path = "C:\\Users\\Bread\\Documents\\bread\\key-python-test\\data\\test\\S__24051720_0.jpg"
+    image_path = "image\/test\/S__24051720_0.jpg"
     boxes = product_search(image_path)
     draw_boxes(image_path, boxes)
