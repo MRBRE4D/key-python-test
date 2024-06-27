@@ -26,7 +26,9 @@ def draw_boxes(image_path, search_results):
         # 從results取得產品名稱和最佳分數
         product_display_name = results.product.display_name
         product_score = results.score
-    
+        print("名稱=",results.product.display_name)
+        print("分數=",results.score)
+        
         text = f"{product_display_name} ({product_score:.2f})"
         cv2.putText(image, text, (int(x_min), int(y_min) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
@@ -64,6 +66,6 @@ def product_search(image_path):
     return search_results
 
 if __name__ == "__main__":
-    image_path = "image\/test\/S__24051718_0.jpg"
+    image_path = "image\/test\/S__24051720_0.jpg"
     boxes = product_search(image_path)
     draw_boxes(image_path, boxes)
