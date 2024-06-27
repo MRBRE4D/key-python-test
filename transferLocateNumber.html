@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>輸入YOLO數據</h1>
+        <input type="text" id="inputField" >
+        <button onclick="submitData()">送出</button>
+    
+        <h2>顯示轉換後數據</h2>
+        <div id="output"></div>
+
+    </div>
+    <script>
+        function submitData() {
+            const inputValue = document.querySelector('#inputField').value
+            
+            const values = inputValue.split(' ').slice(1);
+            const outputValue = values.join(',')
+
+            document.querySelector('#output').innerHTML = outputValue
+
+            document.querySelector('#inputField').value = '';
+        }
+    </script>
+</body>
+</html>

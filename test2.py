@@ -47,10 +47,10 @@ def get_similar_products_file(
     print("Product set index time: ")
     print(index_time)
 
-    results = response.product_search_results.results
+    all_results = response.product_search_results.results
     
     print("Search results:")
-    for result in results:
+    for result in all_results:
         product = result.product
 
         print(f"Score(Confidence): {result.score}")
@@ -61,7 +61,7 @@ def get_similar_products_file(
         print(f"Product description: {product.description}\n")
         print(f"Product labels: {product.product_labels}\n")
         
-        
+    results = response.product_search_results.results[0]
     grouped_results = response.product_search_results.product_grouped_results
     
     # 呈現圖片以及繪製框線
@@ -77,11 +77,11 @@ def get_similar_products_file(
         cv2.rectangle(image, (int(x_min), int(y_min)), (int(x_max), int(y_max)), (0, 255, 0), 2)
         
         # 使用 response.product_search_results.results 中的 display_name 和 score
-        for result in results:
-            product = result.product
-            cv2.putText(image, f"{product.display_name} ({result.score:.2f})", (int(x_min), int(y_min) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-            
+        product = results.product
+        cv2.putText(image, f"{product.display_name} ({results.score:.2f})", (int(x_min), int(y_min) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+    cv2.namedWindow('Search Results', cv2.WINDOW_NORMAL)
     cv2.imshow('Search Results', image)
+    cv2.resizeWindow('Search Results', 800, 600)  # 設定顯示視窗的寬度和高度
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 get_similar_products_file()
