@@ -8,6 +8,23 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "data\plasma-buckeye-427410-t8-6c
 
 def draw_boxes(image_path, search_results):
     
+    # 僅顯示結果用
+    all_results = search_results.results
+    
+    print("Search results:")
+    for result in all_results:
+        product = result.product
+
+        print(f"分數(Confidence): {result.score}")
+        print(f"對應圖片: {result.image}")
+
+        print(f"商品名: {product.name}")
+        print("名稱: {}".format(product.display_name))
+        print(f"描述: {product.description}\n")
+        print(f"標籤: {product.product_labels}\n")
+        print('-----------------------------')
+    
+    
     results = search_results.results[0]
     grouped_results = search_results.product_grouped_results
     
@@ -26,8 +43,6 @@ def draw_boxes(image_path, search_results):
         # 從results取得產品名稱和最佳分數
         product_display_name = results.product.display_name
         product_score = results.score
-        print("名稱=",results.product.display_name)
-        print("分數=",results.score)
         
         text = f"{product_display_name} ({product_score:.2f})"
         cv2.putText(image, text, (int(x_min), int(y_min) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)

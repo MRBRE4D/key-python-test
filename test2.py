@@ -60,6 +60,7 @@ def get_similar_products_file(
         print("Product display name: {}".format(product.display_name))
         print(f"Product description: {product.description}\n")
         print(f"Product labels: {product.product_labels}\n")
+        print('-----------------------------')
         
     results = response.product_search_results.results[0]
     grouped_results = response.product_search_results.product_grouped_results
