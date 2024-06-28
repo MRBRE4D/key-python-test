@@ -4,7 +4,7 @@ from google.cloud import vision_v1
 from google.cloud.vision_v1 import types
 
 # 憑證
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "data\plasma-buckeye-427410-t8-6c2611019c9d.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "data\plasma-buckeye-427410-t8-dbc5f1c5181b.json"
 
 def draw_boxes(image_path, search_results):
     

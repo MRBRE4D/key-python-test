@@ -1,6 +1,6 @@
 .conda
 data
-data/*
+data/*.json
 
 asset/downloadKey
 asset/downloadLabel
