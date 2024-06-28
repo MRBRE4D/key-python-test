@@ -10,7 +10,7 @@ def get_similar_products_file(
     location = 'asia-east1',
     product_set_id = '5e22bdcb197e2a53',
     product_category= 'homegoods-v2',
-    file_path= "image\/test\/S__24051720_0.jpg",
+    file_path= "image\/test\/S__24117253_0.jpg",
     filter= 'type=key' ,
     max_results= 5,
 ):

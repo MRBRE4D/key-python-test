@@ -28,3 +28,25 @@
 <img src="./asset/officialKey/H646/LINE_ALBUM_H646_240628_36.jpg" height="200px"><img/>
 #### H648_23 score:77.3% 
 <img src="./asset/officialKey/H648/LINE_ALBUM_H648_240628_23.jpg" height="200px"><img/>
+
+## test target 3 
+<img src="./image/test/S__24117251_0.jpg" height="200px"><img/>
+### result
+<img src="./asset/test-result/20240628_result_03.jpg" height="200px"><img/>
+#### H648_54 score:77.8% 
+<img src="./asset/officialKey/H648/LINE_ALBUM_H648_240628_54.jpg" height="200px"><img/>
+#### H646_37 score:72.5% 
+<img src="./asset/officialKey/H646/LINE_ALBUM_H646_240628_37.jpg" height="200px"><img/>
+#### H706_78 score:77.3% 
+<img src="./asset/officialKey/H706/LINE_ALBUM_H706_240628_78.jpg" height="200px"><img/>
+
+## test target 4
+<img src="./image/test/S__24117253_0.jpg" height="200px"><img/>
+### result
+<img src="./asset/test-result/20240628_result_04.jpg" height="200px"><img/>
+#### H648_54 score:60.0% 
+<img src="./asset/officialKey/H648/LINE_ALBUM_H648_240628_54.jpg" height="200px"><img/>
+#### H706_57 score:54.1% 
+<img src="./asset/officialKey/H706/LINE_ALBUM_H706_240628_57.jpg" height="200px"><img/>
+#### H646_45 score:50.8% 
+<img src="./asset/officialKey/H646/LINE_ALBUM_H646_240628_45.jpg" height="200px"><img/>
