@@ -25,25 +25,32 @@
     <script>
         function submitData() {
             // 取得輸入框的值
-            var inputValue = document.getElementById('inputField').value;
+            const inputValue = document.getElementById('inputField').value;
             
+
+            let values = inputValue.trim().split('\n').map(line => {
+                const [label, x_center, y_center, width, height] = line.split(' ').map(Number);
+                return { x_center, y_center, width, height };
+            })[0];
+            console.log("values=",values)
+
             // 分割數據
-            var values = inputValue.split(',').map(Number);
             
-            if (values.length === 4) {
-                var x_center = values[0];
-                var y_center = values[1];
-                var width = values[2];
-                var height = values[3];
+            if (values) {
+                const { x_center, y_center, width, height } = values;
+                //const x_center = values[0];
+                //const y_center = values[1];
+                //const width = values[2];
+                //const height = values[3];
                 
                 // 計算四個座標
-                var xmin = x_center - width / 2;
-                var xmax = x_center + width / 2;
-                var ymin = y_center - height / 2;
-                var ymax = y_center + height / 2;
+                const xmin = x_center - width / 2;
+                const xmax = x_center + width / 2;
+                const ymin = y_center - height / 2;
+                const ymax = y_center + height / 2;
                 
                 // 格式化輸出
-                var outputValue = `${xmin.toFixed(6)},${ymin.toFixed(6)},${xmax.toFixed(6)},${ymin.toFixed(6)},${xmax.toFixed(6)},${ymax.toFixed(6)},${xmin.toFixed(6)},${ymax.toFixed(6)}`;
+                const outputValue = `${xmin.toFixed(6)},${ymin.toFixed(6)},${xmax.toFixed(6)},${ymin.toFixed(6)},${xmax.toFixed(6)},${ymax.toFixed(6)},${xmin.toFixed(6)},${ymax.toFixed(6)}`;
                 
                 // 顯示數據
                 document.getElementById('output').innerText = outputValue;
@@ -51,7 +58,7 @@
                 // 清空輸入框
                 document.getElementById('inputField').value = '';
             } else {
-                document.getElementById('output').innerText = '請輸入四個以逗號隔開的數字。';
+                document.getElementById('output').innerText = '請輸入正確的數據格式。';
             }
         }
     </script>

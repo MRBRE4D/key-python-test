@@ -1,7 +1,9 @@
 .conda
 
-asset
 
+asset/downloadKey
+asset/downloadLabel
+asset/officialKey/*/label
 
 
 
