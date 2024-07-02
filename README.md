@@ -1,4 +1,3 @@
-# GOOGLE CLOUD VISION API PRODUCT SEARCH 
 # TEST RECORD
 
 ## 2024/06/28
@@ -35,7 +34,7 @@
 <img src="./asset/officialKey/H648/LINE_ALBUM_H648_240628_54.jpg" height="200px"><img/>
 #### H646_37 score:72.5% 
 <img src="./asset/officialKey/H646/LINE_ALBUM_H646_240628_37.jpg" height="200px"><img/>
-#### H706_78 score:77.3% 
+#### H706_78 score:66.1% 
 <img src="./asset/officialKey/H706/LINE_ALBUM_H706_240628_78.jpg" height="200px"><img/>
 
 ## test 4 H648 CLOVER1 success
@@ -71,3 +70,23 @@
 <img src="./asset/officialKey/H706/LINE_ALBUM_H706_240628_33.jpg" height="200px"><img/>
 #### H648_54 score:50.3% 
 <img src="./asset/officialKey/H648/LINE_ALBUM_H648_240628_54.jpg" height="200px"><img/>
+
+## 2024/07/2
+#### update: 新增文字分析API
+## test 1 H706 純正1 文字分析成功
+<img src="./image/test/S__24117256_0.jpg" height="200px"><img/>
+### result
+<img src="./asset/test-result/20240702_result_01.jpg" height="200px"><img/>
+####TEXT: MIWA
+
+## test 2 H648 CLOVER1 文字分析失敗
+<img src="./image/test/S__24117251_0.jpg" height="200px"><img/>
+### result
+<img src="./asset/test-result/20240702_result_02.jpg" height="200px"><img/>
+####TEXT: 11648 F נהן
+
+## test 3 H706 CLOVER1 文字分析成功
+<img src="./image/test/S__24117254_0.jpg" height="200px"><img/>
+### result
+<img src="./asset/test-result/20240702_result_03.jpg" height="200px"><img/>
+####TEXT: H706

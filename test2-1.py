@@ -1,8 +1,8 @@
 from google.cloud import vision
 import cv2
 import numpy as np
+import io
 import os 
-
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "data\plasma-buckeye-427410-t8-dbc5f1c5181b.json"
 
 def get_similar_products_file(
@@ -16,18 +16,25 @@ def get_similar_products_file(
 ):
     
 
-    # product_search_client is needed only for its helper methods.
+    # Google cloud 客戶端
     product_search_client = vision.ProductSearchClient()
     image_annotator_client = vision.ImageAnnotatorClient()
 
-    # Read the image as a stream of bytes.
-    with open(file_path, "rb") as image_file:
+    # 二進制的rb模式開啟圖片，並儲存在content
+    with io.open(file_path, "rb") as image_file:
         content = image_file.read()
 
-    # Create annotate image request along with product search feature.
     image = vision.Image(content=content)
 
-    # product search specific parameters
+
+    # 鑰匙頭文字分析
+    response_text = image_annotator_client.text_detection(image=image)
+    texts = response_text.text_annotations
+    for text in texts:
+        print("Text: {}".format(text.description))
+        
+    
+    # 鑰匙柄特徵分析
     product_set_path = product_search_client.product_set_path(
         project=project_id, location=location, product_set=product_set_id
     )
@@ -44,12 +51,12 @@ def get_similar_products_file(
     )
 
     index_time = response.product_search_results.index_time
-    print("Product set index time: ")
-    print(index_time)
+    # print("Product set index time: ")
+    # print(index_time)
 
     all_results = response.product_search_results.results
     
-    print("Search results:")
+    # print("Search results:")
     for result in all_results:
         product = result.product
 
@@ -67,6 +74,14 @@ def get_similar_products_file(
     
     # 呈現圖片以及繪製框線
     image = cv2.imread(file_path)
+    
+    for text in texts:
+        vertices = [(vertex.x, vertex.y) for vertex in text.bounding_poly.vertices]
+        vertices = [(int(x), int(y)) for x, y in vertices]  # 確保頂點座標為整數
+        cv2.polylines(image, [np.array(vertices, np.int32)], isClosed=True, color=(0, 0, 255), thickness=2)
+        cv2.putText(image, text.description, (vertices[0][0], vertices[0][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+
+    
     for grouped_result in grouped_results:
         bounding_poly = grouped_result.bounding_poly
         
